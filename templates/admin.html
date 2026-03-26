@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+
+<style>
+
+body{
+font-family:Poppins;
+background:#1e3c72;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+table{
+margin:auto;
+border-collapse:collapse;
+width:50%;
+}
+
+th,td{
+padding:12px;
+border:1px solid white;
+}
+
+button{
+margin-top:20px;
+padding:10px 20px;
+border:none;
+background:#ff758c;
+color:white;
+border-radius:20px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Admin Panel</h1>
+
+<table>
+
+<tr>
+<th>Candidate</th>
+<th>Votes</th>
+</tr>
+
+{% for c in candidates %}
+
+<tr>
+<td>{{c[1]}}</td>
+<td>{{c[2]}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<a href="/reset">
+<button>Reset Votes</button>
+</a>
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>Voter Login</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
+}
+
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+background:linear-gradient(135deg,#ff6ec4,#7873f5);
+}
+
+@property --a{
+syntax:"<angle>";
+inherits:false;
+initial-value:0deg;
+}
+
+/* BOX CLOSED STATE */
+.box{
+position:relative;
+width:260px;
+height:80px;
+
+background:repeating-conic-gradient(
+from var(--a),
+#ff6ec4 0%,
+#ff6ec4 5%,
+transparent 5%,
+transparent 40%,
+#7873f5 50%
+);
+
+filter:drop-shadow(0 15px 40px rgba(0,0,0,0.5));
+animation:rotating 4s linear infinite;
+
+border-radius:20px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+transition:0.5s;
+overflow:hidden;
+}
+
+/* OPEN WHEN HOVER OR WHEN USER IS TYPING */
+.box:hover,
+.box:focus-within{
+width:420px;
+height:480px;
+}
+
+@keyframes rotating{
+0%{--a:0deg;}
+100%{--a:360deg;}
+}
+
+.box::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+
+background:repeating-conic-gradient(
+from var(--a),
+#ff6ec4 0%,
+#ff6ec4 5%,
+transparent 5%,
+transparent 40%,
+#7873f5 50%
+);
+
+border-radius:20px;
+animation:rotating 4s linear infinite;
+animation-delay:-1s;
+}
+
+.box::after{
+content:"";
+position:absolute;
+inset:4px;
+background:#2d2d39;
+border-radius:15px;
+}
+
+/* LOGIN AREA */
+.login{
+position:absolute;
+inset:40px;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:rgba(0,0,0,0.25);
+border-radius:10px;
+z-index:10;
+color:white;
+opacity:0;
+transform:translateY(20px);
+transition:0.4s;
+}
+
+/* SHOW FORM WHEN BOX OPENS */
+.box:hover .login,
+.box:focus-within .login{
+opacity:1;
+transform:translateY(0);
+}
+
+/* FORM */
+.loginBx{
+display:flex;
+flex-direction:column;
+gap:15px;
+width:85%;
+margin-top:20px;
+}
+
+.loginTitle{
+color:white;
+font-size:28px;
+font-weight:600;
+letter-spacing:2px;
+text-align:center;
+}
+
+.loginBx input{
+padding:15px 15px;
+border-radius:25px;
+border:2px solid white;
+background:rgba(0,0,0,0.1);
+color:white;
+outline:none;
+}
+
+.loginBx input::placeholder{
+color:#ddd;
+}
+
+.loginBx input[type="submit"]{
+background:#ff6ec4;
+border:none;
+cursor:pointer;
+font-weight:600;
+color:white;
+transition:0.3s;
+}
+
+.loginBx input[type="submit"]:hover{
+background:#7873f5;
+box-shadow:0 0 15px rgba(255,255,255,0.6);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<div class="login">
+
+<h2 class="loginTitle">
+<i class="fa-solid fa-user"></i> Voter Login
+</h2>
+
+<form class="loginBx" method="POST" action="/login">
+
+<input type="text" name="name" placeholder="Full Name" required>
+
+<input type="number" name="age" placeholder="Age (18+)" min="18" required>
+
+<input type="email" name="email" placeholder="Gmail Address" required>
+
+<input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9]{10}" required>
+
+<input type="submit" value="Enter Voting Portal">
+
+</form>
+
+</div>
+</div>
+
+</body>
+</html>
