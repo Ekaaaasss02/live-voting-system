@@ -54,6 +54,8 @@ live-voting-system/
 │
 └── static/
     └── style.css         # CSS styling
+
+```
 ⚙️ Technologies Used
 Frontend
 HTML
@@ -94,6 +96,7 @@ Voting Page
 Submit Vote
      ↓
 Results Page
+
 🌐 Computer Networks Concepts Used
 Client-Server Architecture
 HTTP Request / Response Cycle
@@ -105,6 +108,7 @@ Real-Time Data Communication (can be extended using WebSockets)
 🔐 Secure Authentication System
 🧾 Voting History Tracking
 ⏱️ Live Poll Timer
+
 👨‍💻 Author
 
 Bismun Singh
